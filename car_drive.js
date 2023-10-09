@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight-50;
+let height = canvas.height = window.innerHeight;
 
 //My car variables
 let car_x = 0, car_y = 0, stripe_y = height - 50, stripe_speed = 10;
