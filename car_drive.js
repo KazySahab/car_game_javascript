@@ -9,12 +9,13 @@ let move_car_x = (width / 2) - 160, move_car_y = (height - 200);
 
 //Opponent car variables
 let opponent_car_x = 0, opponent_car_y = 0;
-let move_opponent_car_x = (width / 2) - 160, move_opponent_car_y=-200;
+let move_opponent_car_x = (width / 2) - 160, move_opponent_car_y = -200;
 let opponent_car_color = "yellow";
-let opponent_car_speed=0;
+let opponent_car_speed = 0;
 
 //animation loop
 let loop;
+
 
 
 //Middle-road stripe class
@@ -59,6 +60,7 @@ for (let j = 0; j < 9; j++) {
     let stripe = new Stripe((width / 2) + 66, stripe_y, j);
     stripes_right.push(stripe);
 }
+
 //Text functions
 function text() {
     ctx.font = "30px Comic Sans MS";
@@ -75,7 +77,7 @@ function text() {
 
 //Opponent car functions
 function opponent_car() {
-    move_opponent_car_y += (opponent_car_speed+3);
+    move_opponent_car_y += (opponent_car_speed + 3);
     opponent_car_x = move_opponent_car_x;
     opponent_car_y = move_opponent_car_y;
     ctx.beginPath();
@@ -129,16 +131,14 @@ function tyres() {
     ctx.closePath();
 }
 function Car() {
-    car_x = move_car_x;
-    car_y = move_car_y;
+
     ctx.beginPath();
     ctx.fillStyle = "red";
     ctx.fillRect(car_x, car_y, 50, 100);
     ctx.closePath();
-
-
-
 }
+
+
 function Road() {
     ctx.beginPath();
     ctx.rect((width / 2) - 200, 0, 400, height);
@@ -165,12 +165,11 @@ function White_stripe() {
 //collide function
 function collide_cars() {
     if (opponent_car_y + 100 >= car_y && opponent_car_y < car_y + 100 && opponent_car_x <= car_x + 60 && opponent_car_x + 60 >= car_x) {
-        console.log("collided");
         ctx.font = "50px Comic Sans MS";
         ctx.fillStyle = "black";
-        ctx.fillText("Game Over ! ", (width / 2)-120, 350);
+        ctx.fillText("Game Over ! ", (width / 2) - 120, 350);
         ctx.font = "30px Comic Sans MS";
-        ctx.fillText(" Press Space/Enter to restart  ", (width / 2)-180, 450);
+        ctx.fillText(" Press Space/Enter to restart  ", (width / 2) - 180, 450);
         exitAnimationFrame(loop);
 
     }
@@ -190,7 +189,6 @@ function animate() {
     Car();
     collide_cars();
     loop = requestAnimationFrame(animate);
-
 }
 animate();
 

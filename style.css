@@ -1,7 +1,8 @@
-body{ 
+body {
     margin: 0;
 }
-#canvas{
+
+#canvas {
     display: block;
     background-color: rgb(78, 121, 138);
 }

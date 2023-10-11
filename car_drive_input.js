@@ -18,18 +18,18 @@ document.addEventListener("keydown", function (input) {
     else if (input.code == "ArrowUp") {
         if (stripe_speed <= 10) {
             stripe_speed += 5;
-            opponent_car_speed+=3;
+            opponent_car_speed += 3;
         }
 
     }
     else if (input.code == "ArrowDown") {
         if (stripe_speed == 15) {
             stripe_speed -= 5;
-
+            opponent_car_speed -= 3;
         }
 
     }
-// console.log(input.code);
+    // console.log(input.code);
     else if (input.code == "Enter" || input.code == "Space") {
         if (opponent_car_y + 100 >= car_y && opponent_car_y < car_y + 100 && opponent_car_x <= car_x + 60 && opponent_car_x + 60 >= car_x) {
             location.reload(animate);
