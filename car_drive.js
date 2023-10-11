@@ -16,6 +16,15 @@ let opponent_car_speed = 0;
 //animation loop
 let loop;
 
+const my_car_img = new Image();
+my_car_img.src="./my_car.png"
+
+const opponent_car_img= new Image();
+opponent_car_img.src="./my_car.png"
+
+const sound =new Audio();
+sound.src="./sound.wav";
+
 
 
 //Middle-road stripe class
@@ -82,20 +91,10 @@ function opponent_car() {
     opponent_car_y = move_opponent_car_y;
     ctx.beginPath();
     ctx.fillStyle = opponent_car_color;
-    ctx.fillRect(opponent_car_x, opponent_car_y, 50, 100);
+    ctx.fillRect(opponent_car_x, opponent_car_y, 60, 120);
     ctx.closePath();
 }
 
-function opponent_car_tyres() {
-    ctx.beginPath();
-    ctx.fillStyle = "black";
-    ctx.fillRect(opponent_car_x - 7, opponent_car_y + 10, 10, 20);
-    ctx.fillRect(opponent_car_x - 7, opponent_car_y + 80, 10, 20);
-    ctx.fillRect(opponent_car_x + 47, opponent_car_y + 10, 10, 20);
-    ctx.fillRect(opponent_car_x + 47, opponent_car_y + 80, 10, 20);
-    ctx.closePath();
-
-}
 
 function bring_opponent_car() {
 
@@ -119,22 +118,12 @@ function bring_opponent_car() {
 }
 
 //My car Functions
-function tyres() {
+function Car() {
     car_x = move_car_x;
     car_y = move_car_y;
     ctx.beginPath();
-    ctx.fillStyle = "black";
-    ctx.fillRect(car_x - 7, car_y + 6, 10, 20);
-    ctx.fillRect(car_x - 7, car_y + 75, 10, 20);
-    ctx.fillRect(car_x + 47, car_y + 6, 10, 20);
-    ctx.fillRect(car_x + 47, car_y + 75, 10, 20);
-    ctx.closePath();
-}
-function Car() {
-
-    ctx.beginPath();
     ctx.fillStyle = "red";
-    ctx.fillRect(car_x, car_y, 50, 100);
+    ctx.fillRect(car_x, car_y, 60, 120);
     ctx.closePath();
 }
 
@@ -164,7 +153,7 @@ function White_stripe() {
 }
 //collide function
 function collide_cars() {
-    if (opponent_car_y + 100 >= car_y && opponent_car_y < car_y + 100 && opponent_car_x <= car_x + 60 && opponent_car_x + 60 >= car_x) {
+    if (opponent_car_y + 120 >= car_y && opponent_car_y < car_y + 120 && opponent_car_x <= car_x + 60 && opponent_car_x + 60 >= car_x) {
         ctx.font = "50px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.fillText("Game Over ! ", (width / 2) - 120, 350);
@@ -176,17 +165,36 @@ function collide_cars() {
 }
 
 
+function draw_my_car()
+{
+    car_x = move_car_x;
+    car_y = move_car_y;
+    ctx.drawImage(my_car_img,car_x-70,car_y-30,200,180);
+}
+function draw_opponent_car()
+{
+    move_opponent_car_y += (opponent_car_speed + 3);
+    opponent_car_x = move_opponent_car_x;
+    opponent_car_y = move_opponent_car_y;
+    ctx.drawImage(opponent_car_img,opponent_car_x-70,opponent_car_y-30,200,180);
+}
+
+function play(){
+    sound.play();
+    sound.volume=0.1;
+}
 //Animate game in 60 FPS
 function animate() {
     ctx.clearRect(0, 0, width, height);
+    play(); 
     text();
     Road();
     White_stripe();
-    opponent_car_tyres();
-    opponent_car();
+   // opponent_car();
     bring_opponent_car();
-    tyres();
-    Car();
+   // Car();
+    draw_my_car();
+    draw_opponent_car();
     collide_cars();
     loop = requestAnimationFrame(animate);
 }

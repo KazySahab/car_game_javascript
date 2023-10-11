@@ -31,7 +31,7 @@ document.addEventListener("keydown", function (input) {
     }
     // console.log(input.code);
     else if (input.code == "Enter" || input.code == "Space") {
-        if (opponent_car_y + 100 >= car_y && opponent_car_y < car_y + 100 && opponent_car_x <= car_x + 60 && opponent_car_x + 60 >= car_x) {
+        if (opponent_car_y + 120 >= car_y && opponent_car_y < car_y + 120 && opponent_car_x <= car_x + 60 && opponent_car_x + 60 >= car_x) {
             location.reload(animate);
         }
     }
