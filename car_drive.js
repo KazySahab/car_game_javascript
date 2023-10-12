@@ -17,13 +17,13 @@ let opponent_car_speed = 0;
 let loop;
 
 const my_car_img = new Image();
-my_car_img.src="./my_car.png"
+my_car_img.src="./resources/my_car.png"
 
 const opponent_car_img= new Image();
-opponent_car_img.src="./my_car.png"
+opponent_car_img.src="./resources/opponent_car.png"
 
 const sound =new Audio();
-sound.src="./sound.wav";
+sound.src="./resources/sound.wav";
 
 
 
@@ -169,14 +169,14 @@ function draw_my_car()
 {
     car_x = move_car_x;
     car_y = move_car_y;
-    ctx.drawImage(my_car_img,car_x-70,car_y-30,200,180);
+    ctx.drawImage(my_car_img,car_x-11,car_y-7,82,135);
 }
 function draw_opponent_car()
 {
     move_opponent_car_y += (opponent_car_speed + 3);
     opponent_car_x = move_opponent_car_x;
     opponent_car_y = move_opponent_car_y;
-    ctx.drawImage(opponent_car_img,opponent_car_x-70,opponent_car_y-30,200,180);
+    ctx.drawImage(opponent_car_img,opponent_car_x-11,opponent_car_y-7,82,135);
 }
 
 function play(){
@@ -190,9 +190,9 @@ function animate() {
     text();
     Road();
     White_stripe();
-   // opponent_car();
+   //opponent_car();
     bring_opponent_car();
-   // Car();
+    //Car();
     draw_my_car();
     draw_opponent_car();
     collide_cars();
