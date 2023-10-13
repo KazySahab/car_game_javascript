@@ -12,7 +12,7 @@ class Opponent_car {
         };
         this.velocity = {
             x: 0,
-            y: 4
+            y: 0.5
         };
 
     }
@@ -23,7 +23,7 @@ class Opponent_car {
     }
     move() {
         this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
+        this.position.y += this.velocity.y*deltaTime;
     }
     update() {
         this.draw();

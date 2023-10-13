@@ -17,12 +17,12 @@ class Road {
         ctx.closePath();
     }
 };
+
 class Stripe {
     constructor(strip_x, stripe_y, i) {
-        this.stripe_speed = 10;
         this.position = {
             x: strip_x,
-            y: stripe_y - (i * 120)
+            y: stripe_y - (i * 160)
         };
         this.size = {
             width: 8,
@@ -37,9 +37,9 @@ class Stripe {
         ctx.closePath();
     }
     move_stripe() {
-        this.position.y += stripe_speed;
+        this.position.y += stripe_speed*deltaTime;
         if (this.position.y > height) {
-            this.position.y = -70;
+            this.position.y = -120;
         }
     }
 
@@ -48,3 +48,4 @@ class Stripe {
         this.move_stripe();
     }
 };
+
