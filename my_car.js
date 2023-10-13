@@ -26,9 +26,9 @@ class My_car {
         this.position.y += this.velocity.y;
     }
     check() {
-        if (this.position.y < 30) {
+        if (this.position.y < 20) {
             this.velocity.y = 0;
-            this.position.y = 30;
+            this.position.y = 20;
         }
         if (this.position.y > height - 170) {
             this.velocity.y = 0;
