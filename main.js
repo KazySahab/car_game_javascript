@@ -4,15 +4,18 @@ let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 let stripe_y = height, stripe_speed = 1;
 let check_collide_car;
+
 const opponent_car = new Opponent_car((width / 2) - 170);
 const my_car = new My_car();
 const road = new Road((width / 2) - 200, 400);
 const left_border_lane = new Road((width / 2) - 200, 3);
 const right_border_lane = new Road((width / 2) + 200, 3);
+
 const my_car_img = new Image();
 my_car_img.src = "./resources/my_car.png"
 const opponent_car_img = new Image();
 opponent_car_img.src = "./resources/opponent_car.png"
+
 let stripes_left = [];
 let stripes_right = [];
 for (let j = 0; j < 7; j++) {
@@ -24,7 +27,6 @@ for (let j = 0; j < 7; j++) {
     let stripe = new Stripe((width / 2) + 66, stripe_y, j);
     stripes_right.push(stripe);
 }
-
 
 let deltaTime = 0;
 let lastTimestamp = performance.now();
