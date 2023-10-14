@@ -19,10 +19,10 @@ class Road {
 };
 
 class Stripe {
-    constructor(strip_x, stripe_y, i) {
+    constructor(strip_x, i) {
         this.position = {
             x: strip_x,
-            y: stripe_y - (i * 160)
+            y: height - (i * 160)
         };
         this.size = {
             width: 8,

@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
-let stripe_y = height, stripe_speed = 1;
+let stripe_speed = 1;
 let check_collide_car;
 
 const opponent_car = new Opponent_car((width / 2) - 170);
@@ -20,11 +20,11 @@ let stripes_left = [];
 let stripes_right = [];
 for (let j = 0; j < 7; j++) {
 
-    let stripe = new Stripe((width / 2) - 66, stripe_y, j);
+    let stripe = new Stripe((width / 2) - 66, j);
     stripes_left.push(stripe);
 }
 for (let j = 0; j < 7; j++) {
-    let stripe = new Stripe((width / 2) + 66, stripe_y, j);
+    let stripe = new Stripe((width / 2) + 66, j);
     stripes_right.push(stripe);
 }
 
