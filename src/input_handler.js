@@ -21,6 +21,6 @@ document.addEventListener("keyup", function (input) {
         my_car.velocity.y = 0;
     if (input.code == "KeyS" && my_car.position.y < height - 170)
         my_car.velocity.y = 0;
-    if (input.code == "KeyD" && my_car.position.x < (width / 2) + 110)    my_car.velocity.x = 0;
+    if (input.code == "KeyD" && my_car.position.x < (width / 2) + 110) my_car.velocity.x = 0;
     if (input.code == "KeyA" && my_car.position.x > (width / 2) - 180) my_car.velocity.x = 0;
 });

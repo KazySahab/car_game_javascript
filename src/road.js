@@ -29,6 +29,7 @@ class Stripe {
             height: 50
         };
     }
+
     draw_strip() {
         ctx.beginPath();
         ctx.rect(this.position.x, this.position.y, this.size.width, this.size.height);
@@ -37,11 +38,12 @@ class Stripe {
         ctx.closePath();
     }
     move_stripe() {
-        this.position.y += stripe_speed*deltaTime;
+        this.position.y += stripe_speed * deltaTime;
         if (this.position.y > height) {
-            this.position.y = -120; 
+            this.position.y = -120;
         }
     }
+
 
     update() {
         this.draw_strip();

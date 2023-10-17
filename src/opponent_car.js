@@ -19,12 +19,10 @@ class Opponent_car {
             this.image = new Image();
             this.image.src = "./resources/opponent_car.png";
         }
-        if(image_selector==2)
-        {
+        if (image_selector == 2) {
             this.image = new Image();
             this.image.src = "./resources/opponent_car1.png"
         }
-        console.log(image_selector);
 
 
     }
@@ -38,12 +36,13 @@ class Opponent_car {
         this.position.y += this.velocity.y * deltaTime;
     }
     collide_cars(my_car) {
+
         if (this.position.y + 150 >= my_car.position.y
             && this.position.y < my_car.position.y + 150
             && this.position.x <= my_car.position.x + 70
             && this.position.x + 70 >= my_car.position.x)
+
             check_collide_car = true;
-        console.log(check_collide_car);
     }
     update() {
         this.draw();
