@@ -2,6 +2,7 @@
 function game_over() {
     if (check_collide_car==true)
     {
+        bg_sound.pause();
         ctx.font = "50px Comic Sans MS";
         ctx.fillStyle = "black";
         ctx.fillText("Game Over ! ", (width / 2) - 120, 350);

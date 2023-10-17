@@ -11,10 +11,15 @@ const road = new Road((width / 2) - 200, 400);
 const left_border_lane = new Road((width / 2) - 200, 3);
 const right_border_lane = new Road((width / 2) + 200, 3);
 
+const bg_sound=new Audio();
+bg_sound.src="./resources/bg.ogg"
+bg_sound.volume=0.05;
+
 const my_car_img = new Image();
 my_car_img.src = "./resources/my_car.png"
 const opponent_car_img = new Image();
 opponent_car_img.src = "./resources/opponent_car.png"
+
 
 let stripes_left = [];
 let stripes_right = [];
@@ -47,6 +52,7 @@ function start() {
 function animate(timestamp) {
     deltaTime = (timestamp - lastTimestamp);
     lastTimestamp = timestamp;
+    bg_sound.play();
     ctx.clearRect(0, 0, width, height);
     road.draw("gray");
     left_border_lane.draw("yellow");
