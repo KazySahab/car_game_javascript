@@ -14,11 +14,13 @@ class My_car {
             x: 0,
             y: 0
         };
+        this.image=new Image();
+        this.image.src="./resources/my_car.png"
 
     }
     draw() {
         ctx.beginPath();
-        ctx.rect(this.position.x, this.position.y, this.size.width, this.size.height);
+        ctx.drawImage(my_car_img, my_car.position.x-15, my_car.position.y-10, 100, 170);
         ctx.closePath();
     }
     move() {

@@ -39,7 +39,7 @@ class Stripe {
     move_stripe() {
         this.position.y += stripe_speed*deltaTime;
         if (this.position.y > height) {
-            this.position.y = -height+880;
+            this.position.y = -120; 
         }
     }
 

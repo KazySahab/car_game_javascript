@@ -9,7 +9,7 @@ document.addEventListener("keydown", function (input) {
     if (input.code == "KeyA" && my_car.position.x > (width / 2) - 180)
         my_car.velocity.x = -0.3;
     if (input.code == "Enter" || input.code == "Space") {
-        if (check_collide_car == "true") {
+        if (check_collide_car == true) {
             location.reload(animate);
         }
     }
